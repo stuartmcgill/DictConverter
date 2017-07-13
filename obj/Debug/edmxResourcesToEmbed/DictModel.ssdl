@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DictionaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ContributorImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContributorId" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ContributorLanguage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContributorId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="FluencyId" Type="int" />
+  </EntityType>
+  <EntityType Name="Contributors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EthnicGroupId" Type="int" Nullable="false" />
+    <Property Name="Birthplace" Type="nvarchar" MaxLength="150" />
+    <Property Name="ParentalDetails" Type="nvarchar" MaxLength="500" />
+    <Property Name="CurrentResidence" Type="nvarchar" MaxLength="150" />
+    <Property Name="ChildhoodResidence" Type="nvarchar" MaxLength="150" />
+    <Property Name="TimeAtCurrentResidence" Type="nvarchar" MaxLength="150" />
+    <Property Name="LevelEducation" Type="nvarchar" MaxLength="250" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="150" />
+    <Property Name="SexId" Type="int" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="AccessRights" Type="nvarchar" MaxLength="500" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="ToolboxInitials" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="EthnicGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Fluency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Filename" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EthnologueCode" Type="nvarchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="LexemeEntries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LexemeId" Type="int" Nullable="false" />
+    <Property Name="TypeId" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="Citation" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CitationOrtho" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Phonetic" Type="nvarchar" MaxLength="250" />
+    <Property Name="TonePattern" Type="nvarchar" MaxLength="20" />
+    <Property Name="LoanwordComment" Type="nvarchar" MaxLength="250" />
+    <Property Name="PartOfSpeechId" Type="int" Nullable="false" />
+    <Property Name="SingularForm" Type="nvarchar" MaxLength="250" />
+    <Property Name="PluralForm" Type="nvarchar" MaxLength="250" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="VerbalComment" Type="nvarchar" MaxLength="250" />
+    <Property Name="Literally" Type="nvarchar" MaxLength="250" />
+    <Property Name="MainEntryId" Type="int" />
+  </EntityType>
+  <EntityType Name="LexemeEntryTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lexemes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lexeme" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="LexemeOrtho" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="HomonymNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="PartsOfSpeech">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SenseExamples">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenseReferenceId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="SoundFile" Type="nvarchar" MaxLength="256" />
+    <Property Name="SoundFileStart" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SoundFileEnd" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="SenseImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenseId" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SenseReferences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenseId" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="TextReference" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EnglishTranslation" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ContributorId" Type="int" />
+  </EntityType>
+  <EntityType Name="Senses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LexemeEntryId" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="EnglishDefinition" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="EnglishGloss" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="EnglishReversal" Type="nvarchar" MaxLength="250" />
+    <Property Name="NationalDefinition" Type="nvarchar" MaxLength="250" />
+    <Property Name="NationalGloss" Type="nvarchar" MaxLength="250" />
+    <Property Name="NationalReversal" Type="nvarchar" MaxLength="250" />
+    <Property Name="UsageComment" Type="nvarchar(max)" />
+    <Property Name="ScientificName" Type="nvarchar" MaxLength="250" />
+    <Property Name="EncyclopaedicInfo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SenseSources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenseId" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SenseXReferences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenseId" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="XReferenceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sexes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpeechEventComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeechEventId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpeechEventContributor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeechEventId" Type="int" Nullable="false" />
+    <Property Name="ContributorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpeechEventCreator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeechEventId" Type="int" Nullable="false" />
+    <Property Name="CreatorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpeechEventFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeechEventId" Type="int" Nullable="false" />
+    <Property Name="FileTypeId" Type="int" Nullable="false" />
+    <Property Name="Filename" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="SpeechEventFileTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpeechEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ToolboxCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="GenreId" Type="int" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="RecordingDate" Type="datetime2" Precision="7" />
+    <Property Name="RecordingPlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="RecordingEquipment" Type="nvarchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="AccessRights" Type="nvarchar" MaxLength="200" />
+    <Property Name="Reviewed" Type="bit" />
+    <Property Name="RecordingQuality" Type="nvarchar" MaxLength="250" />
+    <Property Name="Interlinearised" Type="bit" />
+  </EntityType>
+  <EntityType Name="SpeechEventTopics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeechEventId" Type="int" Nullable="false" />
+    <Property Name="Topic" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpeechEventTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ContributorImage_ToContributors">
+    <End Role="Contributors" Type="Self.Contributors" Multiplicity="1" />
+    <End Role="ContributorImage" Type="Self.ContributorImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contributors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContributorImage">
+        <PropertyRef Name="ContributorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContributorImage_ToImages">
+    <End Role="Images" Type="Self.Images" Multiplicity="1" />
+    <End Role="ContributorImage" Type="Self.ContributorImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContributorImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContributorLanguage_ToContributors">
+    <End Role="Contributors" Type="Self.Contributors" Multiplicity="1" />
+    <End Role="ContributorLanguage" Type="Self.ContributorLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contributors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContributorLanguage">
+        <PropertyRef Name="ContributorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContributorLanguage_ToFluency">
+    <End Role="Fluency" Type="Self.Fluency" Multiplicity="0..1" />
+    <End Role="ContributorLanguage" Type="Self.ContributorLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fluency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContributorLanguage">
+        <PropertyRef Name="FluencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContributorLanguage_ToLanguages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="ContributorLanguage" Type="Self.ContributorLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContributorLanguage">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contributors_ToEthnicGroups">
+    <End Role="EthnicGroups" Type="Self.EthnicGroups" Multiplicity="1" />
+    <End Role="Contributors" Type="Self.Contributors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EthnicGroups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contributors">
+        <PropertyRef Name="EthnicGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contributors_ToSexes">
+    <End Role="Sexes" Type="Self.Sexes" Multiplicity="1" />
+    <End Role="Contributors" Type="Self.Contributors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contributors">
+        <PropertyRef Name="SexId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LexemeEntries_MainEntryToLexeme">
+    <End Role="Lexemes" Type="Self.Lexemes" Multiplicity="0..1" />
+    <End Role="LexemeEntries" Type="Self.LexemeEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lexemes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LexemeEntries">
+        <PropertyRef Name="MainEntryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LexemeEntries_ToLexemeEntryTypes">
+    <End Role="LexemeEntryTypes" Type="Self.LexemeEntryTypes" Multiplicity="1" />
+    <End Role="LexemeEntries" Type="Self.LexemeEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LexemeEntryTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LexemeEntries">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LexemeEntries_ToLexemes">
+    <End Role="Lexemes" Type="Self.Lexemes" Multiplicity="1" />
+    <End Role="LexemeEntries" Type="Self.LexemeEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lexemes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LexemeEntries">
+        <PropertyRef Name="LexemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LexemeEntries_ToPartsOfSpeech">
+    <End Role="PartsOfSpeech" Type="Self.PartsOfSpeech" Multiplicity="1" />
+    <End Role="LexemeEntries" Type="Self.LexemeEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartsOfSpeech">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LexemeEntries">
+        <PropertyRef Name="PartOfSpeechId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseExamples_ToLanguages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="SenseExamples" Type="Self.SenseExamples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseExamples">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseExamples_ToSenseReferences">
+    <End Role="SenseReferences" Type="Self.SenseReferences" Multiplicity="1" />
+    <End Role="SenseExamples" Type="Self.SenseExamples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SenseReferences">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseExamples">
+        <PropertyRef Name="SenseReferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseImage_ToImages">
+    <End Role="Images" Type="Self.Images" Multiplicity="1" />
+    <End Role="SenseImage" Type="Self.SenseImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseImage_ToSenses">
+    <End Role="Senses" Type="Self.Senses" Multiplicity="1" />
+    <End Role="SenseImage" Type="Self.SenseImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Senses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseImage">
+        <PropertyRef Name="SenseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseReferences_ToContributor">
+    <End Role="Contributors" Type="Self.Contributors" Multiplicity="0..1" />
+    <End Role="SenseReferences" Type="Self.SenseReferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contributors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseReferences">
+        <PropertyRef Name="ContributorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseReferences_ToSenses">
+    <End Role="Senses" Type="Self.Senses" Multiplicity="1" />
+    <End Role="SenseReferences" Type="Self.SenseReferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Senses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseReferences">
+        <PropertyRef Name="SenseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Senses_ToLexemeEntries">
+    <End Role="LexemeEntries" Type="Self.LexemeEntries" Multiplicity="1" />
+    <End Role="Senses" Type="Self.Senses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LexemeEntries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Senses">
+        <PropertyRef Name="LexemeEntryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseSources_ToSenses">
+    <End Role="Senses" Type="Self.Senses" Multiplicity="1" />
+    <End Role="SenseSources" Type="Self.SenseSources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Senses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseSources">
+        <PropertyRef Name="SenseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseXReferences_ToLexemeEntries">
+    <End Role="LexemeEntries" Type="Self.LexemeEntries" Multiplicity="1" />
+    <End Role="SenseXReferences" Type="Self.SenseXReferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LexemeEntries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseXReferences">
+        <PropertyRef Name="XReferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SenseXReferences_ToSenses">
+    <End Role="Senses" Type="Self.Senses" Multiplicity="1" />
+    <End Role="SenseXReferences" Type="Self.SenseXReferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Senses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SenseXReferences">
+        <PropertyRef Name="SenseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventComments_ToSpeechEvents">
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="1" />
+    <End Role="SpeechEventComments" Type="Self.SpeechEventComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeechEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventComments">
+        <PropertyRef Name="SpeechEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventContributors_ToContributors">
+    <End Role="Contributors" Type="Self.Contributors" Multiplicity="1" />
+    <End Role="SpeechEventContributor" Type="Self.SpeechEventContributor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contributors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventContributor">
+        <PropertyRef Name="ContributorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventContributors_ToSpeechEvents">
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="1" />
+    <End Role="SpeechEventContributor" Type="Self.SpeechEventContributor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeechEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventContributor">
+        <PropertyRef Name="SpeechEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventCreators_ToContributors">
+    <End Role="Contributors" Type="Self.Contributors" Multiplicity="1" />
+    <End Role="SpeechEventCreator" Type="Self.SpeechEventCreator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contributors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventCreator">
+        <PropertyRef Name="CreatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventCreators_ToSpeechEvents">
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="1" />
+    <End Role="SpeechEventCreator" Type="Self.SpeechEventCreator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeechEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventCreator">
+        <PropertyRef Name="SpeechEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventFiles_ToSpeechEventFileTypes">
+    <End Role="SpeechEventFileTypes" Type="Self.SpeechEventFileTypes" Multiplicity="1" />
+    <End Role="SpeechEventFiles" Type="Self.SpeechEventFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeechEventFileTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventFiles">
+        <PropertyRef Name="FileTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventFiles_ToSpeechEvents">
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="1" />
+    <End Role="SpeechEventFiles" Type="Self.SpeechEventFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeechEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventFiles">
+        <PropertyRef Name="SpeechEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEvents_ToEventTypes">
+    <End Role="SpeechEventTypes" Type="Self.SpeechEventTypes" Multiplicity="1" />
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeechEventTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEvents">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEvents_ToGenres">
+    <End Role="Genres" Type="Self.Genres" Multiplicity="0..1" />
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genres">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEvents">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEvents_ToLanguages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEvents">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeechEventTopics_ToSpeechEvents">
+    <End Role="SpeechEvents" Type="Self.SpeechEvents" Multiplicity="1" />
+    <End Role="SpeechEventTopics" Type="Self.SpeechEventTopics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeechEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeechEventTopics">
+        <PropertyRef Name="SpeechEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DictionaryModelStoreContainer">
+    <EntitySet Name="ContributorImage" EntityType="Self.ContributorImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContributorLanguage" EntityType="Self.ContributorLanguage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contributors" EntityType="Self.Contributors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EthnicGroups" EntityType="Self.EthnicGroups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fluency" EntityType="Self.Fluency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LexemeEntries" EntityType="Self.LexemeEntries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LexemeEntryTypes" EntityType="Self.LexemeEntryTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lexemes" EntityType="Self.Lexemes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartsOfSpeech" EntityType="Self.PartsOfSpeech" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SenseExamples" EntityType="Self.SenseExamples" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SenseImage" EntityType="Self.SenseImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SenseReferences" EntityType="Self.SenseReferences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Senses" EntityType="Self.Senses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SenseSources" EntityType="Self.SenseSources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SenseXReferences" EntityType="Self.SenseXReferences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexes" EntityType="Self.Sexes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEventComments" EntityType="Self.SpeechEventComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEventContributor" EntityType="Self.SpeechEventContributor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEventCreator" EntityType="Self.SpeechEventCreator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEventFiles" EntityType="Self.SpeechEventFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEventFileTypes" EntityType="Self.SpeechEventFileTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEvents" EntityType="Self.SpeechEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEventTopics" EntityType="Self.SpeechEventTopics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeechEventTypes" EntityType="Self.SpeechEventTypes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ContributorImage_ToContributors" Association="Self.FK_ContributorImage_ToContributors">
+      <End Role="Contributors" EntitySet="Contributors" />
+      <End Role="ContributorImage" EntitySet="ContributorImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContributorImage_ToImages" Association="Self.FK_ContributorImage_ToImages">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="ContributorImage" EntitySet="ContributorImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContributorLanguage_ToContributors" Association="Self.FK_ContributorLanguage_ToContributors">
+      <End Role="Contributors" EntitySet="Contributors" />
+      <End Role="ContributorLanguage" EntitySet="ContributorLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContributorLanguage_ToFluency" Association="Self.FK_ContributorLanguage_ToFluency">
+      <End Role="Fluency" EntitySet="Fluency" />
+      <End Role="ContributorLanguage" EntitySet="ContributorLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContributorLanguage_ToLanguages" Association="Self.FK_ContributorLanguage_ToLanguages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ContributorLanguage" EntitySet="ContributorLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contributors_ToEthnicGroups" Association="Self.FK_Contributors_ToEthnicGroups">
+      <End Role="EthnicGroups" EntitySet="EthnicGroups" />
+      <End Role="Contributors" EntitySet="Contributors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contributors_ToSexes" Association="Self.FK_Contributors_ToSexes">
+      <End Role="Sexes" EntitySet="Sexes" />
+      <End Role="Contributors" EntitySet="Contributors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LexemeEntries_MainEntryToLexeme" Association="Self.FK_LexemeEntries_MainEntryToLexeme">
+      <End Role="Lexemes" EntitySet="Lexemes" />
+      <End Role="LexemeEntries" EntitySet="LexemeEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LexemeEntries_ToLexemeEntryTypes" Association="Self.FK_LexemeEntries_ToLexemeEntryTypes">
+      <End Role="LexemeEntryTypes" EntitySet="LexemeEntryTypes" />
+      <End Role="LexemeEntries" EntitySet="LexemeEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LexemeEntries_ToLexemes" Association="Self.FK_LexemeEntries_ToLexemes">
+      <End Role="Lexemes" EntitySet="Lexemes" />
+      <End Role="LexemeEntries" EntitySet="LexemeEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LexemeEntries_ToPartsOfSpeech" Association="Self.FK_LexemeEntries_ToPartsOfSpeech">
+      <End Role="PartsOfSpeech" EntitySet="PartsOfSpeech" />
+      <End Role="LexemeEntries" EntitySet="LexemeEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseExamples_ToLanguages" Association="Self.FK_SenseExamples_ToLanguages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="SenseExamples" EntitySet="SenseExamples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseExamples_ToSenseReferences" Association="Self.FK_SenseExamples_ToSenseReferences">
+      <End Role="SenseReferences" EntitySet="SenseReferences" />
+      <End Role="SenseExamples" EntitySet="SenseExamples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseImage_ToImages" Association="Self.FK_SenseImage_ToImages">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="SenseImage" EntitySet="SenseImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseImage_ToSenses" Association="Self.FK_SenseImage_ToSenses">
+      <End Role="Senses" EntitySet="Senses" />
+      <End Role="SenseImage" EntitySet="SenseImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseReferences_ToContributor" Association="Self.FK_SenseReferences_ToContributor">
+      <End Role="Contributors" EntitySet="Contributors" />
+      <End Role="SenseReferences" EntitySet="SenseReferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseReferences_ToSenses" Association="Self.FK_SenseReferences_ToSenses">
+      <End Role="Senses" EntitySet="Senses" />
+      <End Role="SenseReferences" EntitySet="SenseReferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Senses_ToLexemeEntries" Association="Self.FK_Senses_ToLexemeEntries">
+      <End Role="LexemeEntries" EntitySet="LexemeEntries" />
+      <End Role="Senses" EntitySet="Senses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseSources_ToSenses" Association="Self.FK_SenseSources_ToSenses">
+      <End Role="Senses" EntitySet="Senses" />
+      <End Role="SenseSources" EntitySet="SenseSources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseXReferences_ToLexemeEntries" Association="Self.FK_SenseXReferences_ToLexemeEntries">
+      <End Role="LexemeEntries" EntitySet="LexemeEntries" />
+      <End Role="SenseXReferences" EntitySet="SenseXReferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SenseXReferences_ToSenses" Association="Self.FK_SenseXReferences_ToSenses">
+      <End Role="Senses" EntitySet="Senses" />
+      <End Role="SenseXReferences" EntitySet="SenseXReferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventComments_ToSpeechEvents" Association="Self.FK_SpeechEventComments_ToSpeechEvents">
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+      <End Role="SpeechEventComments" EntitySet="SpeechEventComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventContributors_ToContributors" Association="Self.FK_SpeechEventContributors_ToContributors">
+      <End Role="Contributors" EntitySet="Contributors" />
+      <End Role="SpeechEventContributor" EntitySet="SpeechEventContributor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventContributors_ToSpeechEvents" Association="Self.FK_SpeechEventContributors_ToSpeechEvents">
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+      <End Role="SpeechEventContributor" EntitySet="SpeechEventContributor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventCreators_ToContributors" Association="Self.FK_SpeechEventCreators_ToContributors">
+      <End Role="Contributors" EntitySet="Contributors" />
+      <End Role="SpeechEventCreator" EntitySet="SpeechEventCreator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventCreators_ToSpeechEvents" Association="Self.FK_SpeechEventCreators_ToSpeechEvents">
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+      <End Role="SpeechEventCreator" EntitySet="SpeechEventCreator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventFiles_ToSpeechEventFileTypes" Association="Self.FK_SpeechEventFiles_ToSpeechEventFileTypes">
+      <End Role="SpeechEventFileTypes" EntitySet="SpeechEventFileTypes" />
+      <End Role="SpeechEventFiles" EntitySet="SpeechEventFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventFiles_ToSpeechEvents" Association="Self.FK_SpeechEventFiles_ToSpeechEvents">
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+      <End Role="SpeechEventFiles" EntitySet="SpeechEventFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEvents_ToEventTypes" Association="Self.FK_SpeechEvents_ToEventTypes">
+      <End Role="SpeechEventTypes" EntitySet="SpeechEventTypes" />
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEvents_ToGenres" Association="Self.FK_SpeechEvents_ToGenres">
+      <End Role="Genres" EntitySet="Genres" />
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEvents_ToLanguages" Association="Self.FK_SpeechEvents_ToLanguages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeechEventTopics_ToSpeechEvents" Association="Self.FK_SpeechEventTopics_ToSpeechEvents">
+      <End Role="SpeechEvents" EntitySet="SpeechEvents" />
+      <End Role="SpeechEventTopics" EntitySet="SpeechEventTopics" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

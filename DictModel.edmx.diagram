@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b1045f76f5e04abc93f3b8f47eb1df1c" Name="Diagram1">
+        <EntityTypeShape EntityType="DictionaryModel.ContributorImage" Width="1.5" PointX="8.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.ContributorLanguage" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Contributor" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.EthnicGroup" Width="1.5" PointX="3.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Fluency" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Genre" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Image" Width="1.5" PointX="4.5" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Language" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.LexemeEntry" Width="1.5" PointX="1.5" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.LexemeEntryType" Width="1.5" PointX="1.5" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Lexeme" Width="1.5" PointX="1.5" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.PartsOfSpeech" Width="1.5" PointX="1.5" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SenseExample" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SenseImage" Width="1.5" PointX="6.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SenseReference" Width="1.5" PointX="3.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Sens" Width="1.5" PointX="1.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SenseSource" Width="1.5" PointX="3.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SenseXReference" Width="1.5" PointX="3.75" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.Sex" Width="1.5" PointX="3.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEventComment" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEventContributor" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEventCreator" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEventFile" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEventFileType" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEvent" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEventTopic" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DictionaryModel.SpeechEventType" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="DictionaryModel.FK_ContributorImage_ToContributors" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_ContributorImage_ToImages" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_ContributorLanguage_ToContributors" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_ContributorLanguage_ToFluency" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_ContributorLanguage_ToLanguages" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_Contributors_ToEthnicGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_Contributors_ToSexes" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseReferences_ToContributor" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventContributors_ToContributors" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventCreators_ToContributors" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEvents_ToGenres" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseImage_ToImages" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseExamples_ToLanguages" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEvents_ToLanguages" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.C_FK_LexemeEntries_ToPartsOfSpeech" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_LexemeEntries_MainEntryToLexeme" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_LexemeEntries_ToLexemeEntryTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_LexemeEntries_ToLexemes" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_Senses_ToLexemeEntries" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseXReferences_ToLexemeEntries" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseExamples_ToSenseReferences" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseImage_ToSenses" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseReferences_ToSenses" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseSources_ToSenses" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SenseXReferences_ToSenses" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventComments_ToSpeechEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventContributors_ToSpeechEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventCreators_ToSpeechEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventFiles_ToSpeechEventFileTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventFiles_ToSpeechEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEvents_ToEventTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="DictionaryModel.FK_SpeechEventTopics_ToSpeechEvents" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DictionaryModelStoreContainer" CdmEntityContainer="DictionaryEntities">
+    <EntitySetMapping Name="ContributorImages">
+      <EntityTypeMapping TypeName="DictionaryModel.ContributorImage">
+        <MappingFragment StoreEntitySet="ContributorImage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContributorId" ColumnName="ContributorId" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContributorLanguages">
+      <EntityTypeMapping TypeName="DictionaryModel.ContributorLanguage">
+        <MappingFragment StoreEntitySet="ContributorLanguage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContributorId" ColumnName="ContributorId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="FluencyId" ColumnName="FluencyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contributors">
+      <EntityTypeMapping TypeName="DictionaryModel.Contributor">
+        <MappingFragment StoreEntitySet="Contributors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EthnicGroupId" ColumnName="EthnicGroupId" />
+          <ScalarProperty Name="Birthplace" ColumnName="Birthplace" />
+          <ScalarProperty Name="ParentalDetails" ColumnName="ParentalDetails" />
+          <ScalarProperty Name="CurrentResidence" ColumnName="CurrentResidence" />
+          <ScalarProperty Name="ChildhoodResidence" ColumnName="ChildhoodResidence" />
+          <ScalarProperty Name="TimeAtCurrentResidence" ColumnName="TimeAtCurrentResidence" />
+          <ScalarProperty Name="LevelEducation" ColumnName="LevelEducation" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="SexId" ColumnName="SexId" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="AccessRights" ColumnName="AccessRights" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ToolboxInitials" ColumnName="ToolboxInitials" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EthnicGroups">
+      <EntityTypeMapping TypeName="DictionaryModel.EthnicGroup">
+        <MappingFragment StoreEntitySet="EthnicGroups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fluencies">
+      <EntityTypeMapping TypeName="DictionaryModel.Fluency">
+        <MappingFragment StoreEntitySet="Fluency">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="DictionaryModel.Genre">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="DictionaryModel.Image">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="DictionaryModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EthnologueCode" ColumnName="EthnologueCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LexemeEntries">
+      <EntityTypeMapping TypeName="DictionaryModel.LexemeEntry">
+        <MappingFragment StoreEntitySet="LexemeEntries">
+          <ScalarProperty Name="CitationOrtho" ColumnName="CitationOrtho" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LexemeId" ColumnName="LexemeId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Citation" ColumnName="Citation" />
+          <ScalarProperty Name="Phonetic" ColumnName="Phonetic" />
+          <ScalarProperty Name="TonePattern" ColumnName="TonePattern" />
+          <ScalarProperty Name="LoanwordComment" ColumnName="LoanwordComment" />
+          <ScalarProperty Name="PartOfSpeechId" ColumnName="PartOfSpeechId" />
+          <ScalarProperty Name="SingularForm" ColumnName="SingularForm" />
+          <ScalarProperty Name="PluralForm" ColumnName="PluralForm" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="VerbalComment" ColumnName="VerbalComment" />
+          <ScalarProperty Name="Literally" ColumnName="Literally" />
+          <ScalarProperty Name="MainEntryId" ColumnName="MainEntryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LexemeEntryTypes">
+      <EntityTypeMapping TypeName="DictionaryModel.LexemeEntryType">
+        <MappingFragment StoreEntitySet="LexemeEntryTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lexemes">
+      <EntityTypeMapping TypeName="DictionaryModel.Lexeme">
+        <MappingFragment StoreEntitySet="Lexemes">
+          <ScalarProperty Name="LexemeOrtho" ColumnName="LexemeOrtho" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Lexeme1" ColumnName="Lexeme" />
+          <ScalarProperty Name="HomonymNumber" ColumnName="HomonymNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartsOfSpeeches">
+      <EntityTypeMapping TypeName="DictionaryModel.PartsOfSpeech">
+        <MappingFragment StoreEntitySet="PartsOfSpeech">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SenseExamples">
+      <EntityTypeMapping TypeName="DictionaryModel.SenseExample">
+        <MappingFragment StoreEntitySet="SenseExamples">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SenseReferenceId" ColumnName="SenseReferenceId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="SoundFile" ColumnName="SoundFile" />
+          <ScalarProperty Name="SoundFileStart" ColumnName="SoundFileStart" />
+          <ScalarProperty Name="SoundFileEnd" ColumnName="SoundFileEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SenseImages">
+      <EntityTypeMapping TypeName="DictionaryModel.SenseImage">
+        <MappingFragment StoreEntitySet="SenseImage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SenseId" ColumnName="SenseId" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SenseReferences">
+      <EntityTypeMapping TypeName="DictionaryModel.SenseReference">
+        <MappingFragment StoreEntitySet="SenseReferences">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SenseId" ColumnName="SenseId" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="TextReference" ColumnName="TextReference" />
+          <ScalarProperty Name="EnglishTranslation" ColumnName="EnglishTranslation" />
+          <ScalarProperty Name="ContributorId" ColumnName="ContributorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Senses">
+      <EntityTypeMapping TypeName="DictionaryModel.Sens">
+        <MappingFragment StoreEntitySet="Senses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LexemeEntryId" ColumnName="LexemeEntryId" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="EnglishDefinition" ColumnName="EnglishDefinition" />
+          <ScalarProperty Name="EnglishGloss" ColumnName="EnglishGloss" />
+          <ScalarProperty Name="EnglishReversal" ColumnName="EnglishReversal" />
+          <ScalarProperty Name="NationalDefinition" ColumnName="NationalDefinition" />
+          <ScalarProperty Name="NationalGloss" ColumnName="NationalGloss" />
+          <ScalarProperty Name="NationalReversal" ColumnName="NationalReversal" />
+          <ScalarProperty Name="UsageComment" ColumnName="UsageComment" />
+          <ScalarProperty Name="ScientificName" ColumnName="ScientificName" />
+          <ScalarProperty Name="EncyclopaedicInfo" ColumnName="EncyclopaedicInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SenseSources">
+      <EntityTypeMapping TypeName="DictionaryModel.SenseSource">
+        <MappingFragment StoreEntitySet="SenseSources">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SenseId" ColumnName="SenseId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SenseXReferences">
+      <EntityTypeMapping TypeName="DictionaryModel.SenseXReference">
+        <MappingFragment StoreEntitySet="SenseXReferences">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SenseId" ColumnName="SenseId" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="XReferenceId" ColumnName="XReferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sexes">
+      <EntityTypeMapping TypeName="DictionaryModel.Sex">
+        <MappingFragment StoreEntitySet="Sexes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEventComments">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEventComment">
+        <MappingFragment StoreEntitySet="SpeechEventComments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeechEventId" ColumnName="SpeechEventId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEventContributors">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEventContributor">
+        <MappingFragment StoreEntitySet="SpeechEventContributor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeechEventId" ColumnName="SpeechEventId" />
+          <ScalarProperty Name="ContributorId" ColumnName="ContributorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEventCreators">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEventCreator">
+        <MappingFragment StoreEntitySet="SpeechEventCreator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeechEventId" ColumnName="SpeechEventId" />
+          <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEventFiles">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEventFile">
+        <MappingFragment StoreEntitySet="SpeechEventFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeechEventId" ColumnName="SpeechEventId" />
+          <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEventFileTypes">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEventFileType">
+        <MappingFragment StoreEntitySet="SpeechEventFileTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEvents">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEvent">
+        <MappingFragment StoreEntitySet="SpeechEvents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ToolboxCode" ColumnName="ToolboxCode" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
+          <ScalarProperty Name="RecordingPlace" ColumnName="RecordingPlace" />
+          <ScalarProperty Name="RecordingEquipment" ColumnName="RecordingEquipment" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AccessRights" ColumnName="AccessRights" />
+          <ScalarProperty Name="Reviewed" ColumnName="Reviewed" />
+          <ScalarProperty Name="RecordingQuality" ColumnName="RecordingQuality" />
+          <ScalarProperty Name="Interlinearised" ColumnName="Interlinearised" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEventTopics">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEventTopic">
+        <MappingFragment StoreEntitySet="SpeechEventTopics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpeechEventId" ColumnName="SpeechEventId" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechEventTypes">
+      <EntityTypeMapping TypeName="DictionaryModel.SpeechEventType">
+        <MappingFragment StoreEntitySet="SpeechEventTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
