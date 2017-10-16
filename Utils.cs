@@ -24,6 +24,21 @@ namespace DictConverter
 				LexemeEntry entry = entries[jIndex];
 
 				entry.CitationOrtho = ConvertOrthographic(entry.Citation);
+
+				if(entry.PluralForm != null)
+				{
+					entry.PluralForm = ConvertOrthographic(entry.PluralForm);
+				}
+
+				if (entry.SingularForm != null)
+				{
+					entry.SingularForm = ConvertOrthographic(entry.SingularForm);
+				}
+
+				if (entry.VerbalComment != null)
+				{
+					entry.VerbalComment = ConvertOrthographic(entry.VerbalComment);
+				}
 			}
 
 			lexeme.LexemeOrtho = ConvertOrthographic(lexeme.Lexeme1);
@@ -74,6 +89,21 @@ namespace DictConverter
 			ortho = ortho.Replace("ô", "o");
 			ortho = ortho.Replace("ø̂", "ø");
 			ortho = ortho.Replace("û", "u");
+
+			//capitals
+			ortho = ortho.Replace("Á", "A");
+			ortho = ortho.Replace("É", "E");
+			ortho = ortho.Replace("Í", "I");
+			ortho = ortho.Replace("Ó", "O");
+			ortho = ortho.Replace("Ǿ", "Ø");
+			ortho = ortho.Replace("Ú", "U");
+
+			ortho = ortho.Replace("À", "A");
+			ortho = ortho.Replace("È", "E");
+			ortho = ortho.Replace("Ì", "I");
+			ortho = ortho.Replace("Ò", "O");
+			ortho = ortho.Replace("Ø̀", "Ø");
+			ortho = ortho.Replace("Ù", "U");
 
 			return ortho;
 		}

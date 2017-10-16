@@ -657,6 +657,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Delete_Contributors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Delete_Lexemes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Delete_Metadata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DictionaryModelStoreContainer">
           <EntitySet Name="ContributorImage" EntityType="Self.ContributorImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContributorLanguage" EntityType="Self.ContributorLanguage" Schema="dbo" store:Type="Tables" />
@@ -1690,6 +1693,11 @@
             <End Role="SpeechEvents" EntitySet="SpeechEvents" />
             <End Role="SpeechEventTopics" EntitySet="SpeechEventTopics" />
           </AssociationSet>
+          <FunctionImport Name="Prepare_For_Import" />
+          <FunctionImport Name="Prepare_For_Import_Contributors" />
+          <FunctionImport Name="Delete_Contributors" />
+          <FunctionImport Name="Delete_Lexemes" />
+          <FunctionImport Name="Delete_Metadata" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1992,7 +2000,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <FunctionImportMapping FunctionImportName="Delete_Contributors" FunctionName="DictionaryModel.Store.Delete_Contributors" />
+          <FunctionImportMapping FunctionImportName="Delete_Lexemes" FunctionName="DictionaryModel.Store.Delete_Lexemes" />
+          <FunctionImportMapping FunctionImportName="Delete_Metadata" FunctionName="DictionaryModel.Store.Delete_Metadata" />
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

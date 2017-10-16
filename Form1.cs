@@ -20,8 +20,10 @@ namespace DictConverter
 		{
 			InitializeComponent();
 
-			AddLexemes();
-			//AddMetadata();
+			if(MessageBox.Show("Do you want to recreate the Cicipu database?", "Conversion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				buttonConvert_Click(null, null);
+			}
 		}
 
 		private void buttonBrowse_Click(object sender, EventArgs e)
@@ -46,10 +48,7 @@ namespace DictConverter
 
 		private void buttonConvert_Click(object sender, EventArgs e)
 		{
-			AddLexemes();
-			//AddMetadata();
-			//AddContributors();
-			//AddPos();
+			RefreshDatabase();
 		}
 
 		private int GetEthnicGroupIdFromString(string egString)
@@ -268,9 +267,32 @@ namespace DictConverter
 			}
 		}
 
+		private void RefreshDatabase()
+		{
+			//run stored procs
+			
+			using (DictionaryEntities db = new DictionaryEntities())
+			{
+				//delete lexemes (need to do this before deleting the metadata)
+				db.Delete_Lexemes();
+
+				//delete metadata (need to do this before deleting the contributors
+				db.Delete_Metadata();
+				
+				db.Delete_Contributors();
+			}
+
+			AddContributors();
+
+			AddMetadata();
+			
+			AddLexemes();
+		}
+
 		private void AddContributors()
 		{
-			string fileName = this.textBoxFile.Text;
+			//string fileName = this.textBoxFile.Text;
+			string fileName = @"C:\Users\Stuart\Documents\Visual Studio 2015\Projects\Exports\Contributor.xml";
 
 			XDocument xdoc = XDocument.Load(fileName);
 			var idGroups = from idGroup in xdoc.Descendants("idGroup")
@@ -349,20 +371,27 @@ namespace DictConverter
 					con.DOB = new DateTime(Int32.Parse(dob), 1, 1);
 				}
 
-				//image file
-				string imageFile = idGroup.SafeElement("fnGroup").SafeElement("fn").Value;
-				string imageComment = idGroup.SafeElement("fnGroup").SafeElement("np").Value;
+				//image files
+				var fnGroups = from fnGroup in idGroup.Descendants("fnGroup")
+							   select fnGroup;
 
-				ContributorImage conImage = new ContributorImage();
-				conImage.Comment = imageComment;
+				foreach (XElement fnGroup in fnGroups)
+				{
+					string imageFile = fnGroup.Element("fn").Value;
+					string imageComment = fnGroup.SafeElement("np").Value;
 
-				Image image = new Image();
-				image.Filename = imageFile;
+					ContributorImage conImage = new ContributorImage();
+					conImage.Comment = imageComment;
 
-				conImage.Image = image;
+					Image image = new Image();
+					image.Filename = imageFile;
 
-				con.ContributorImages.Add(conImage);
+					conImage.Image = image;
 
+					con.ContributorImages.Add(conImage);
+				}
+				
+				//finally add the main object
 				cons.Add(con);
 			}
 
@@ -697,7 +726,7 @@ namespace DictConverter
 				int entryOrder = 1;
 				headWord.Order = entryOrder; //headword order is always 1
 
-				//now add lexem entries for the sub-entries
+				//now add lexeme entries for the sub-entries
 				var seGroups = lxGroup.Elements("seGroup");
 				foreach(XElement seGroup in seGroups)
 				{
@@ -834,7 +863,7 @@ namespace DictConverter
 						txn.Rollback();
 						throw;
 					}
-					catch (Exception ex)
+					catch (Exception)
 					{
 						txn.Rollback();
 						throw;
@@ -899,7 +928,7 @@ namespace DictConverter
 			//how many snGroup elements are there?
 			var snGroups = from snGroup in psGroup.Descendants("snGroup")
 						   select snGroup;
-
+			
 			if (snGroups.Count() == 0)
 			{
 				//the sense info is directly under psGroup
@@ -1408,7 +1437,7 @@ namespace DictConverter
 				
 				sense.SenseImages.Add(sImage);
 			}
-
+			
 			//sense sources
 			var sources = from source in parent.Descendants("so")
 						   select source;
@@ -1420,7 +1449,7 @@ namespace DictConverter
 					
 				sense.SenseSources.Add(sSource);
 			}
-
+			
 			//sense cross-refereneces - this is trickier because they may not exist yet
 			var cfGroups = from cfGroup in parent.Descendants("cfGroup")
 						  select cfGroup;
@@ -1447,9 +1476,11 @@ namespace DictConverter
 				//add the rf code
 				elem = rfGroup.Element("rf");
 				sReference.TextReference = elem.Value;
-
+				
 				//try and work out the contributor from the reference
-				int id = GetContributorIdFromReference(rfGroup.Element("rfcon"), ExtractSourceCode(sReference.TextReference));
+				string sourceCode = ExtractSourceCode(sReference.TextReference);
+
+				int id = GetContributorIdFromReference(rfGroup.Element("rfcon"), sourceCode);
 				if(id != 0)
 				{
 					sReference.ContributorId = id;

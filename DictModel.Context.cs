@@ -12,6 +12,8 @@ namespace DictConverter
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DictionaryEntities : DbContext
     {
@@ -52,5 +54,30 @@ namespace DictConverter
         public virtual DbSet<SpeechEvent> SpeechEvents { get; set; }
         public virtual DbSet<SpeechEventTopic> SpeechEventTopics { get; set; }
         public virtual DbSet<SpeechEventType> SpeechEventTypes { get; set; }
+    
+        public virtual int Prepare_For_Import()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Prepare_For_Import");
+        }
+    
+        public virtual int Prepare_For_Import_Contributors()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Prepare_For_Import_Contributors");
+        }
+    
+        public virtual int Delete_Contributors()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Delete_Contributors");
+        }
+    
+        public virtual int Delete_Lexemes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Delete_Lexemes");
+        }
+    
+        public virtual int Delete_Metadata()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Delete_Metadata");
+        }
     }
 }
