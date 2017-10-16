@@ -296,5 +296,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Delete_Contributors" FunctionName="DictionaryModel.Store.Delete_Contributors" />
+    <FunctionImportMapping FunctionImportName="Delete_Lexemes" FunctionName="DictionaryModel.Store.Delete_Lexemes" />
+    <FunctionImportMapping FunctionImportName="Delete_Metadata" FunctionName="DictionaryModel.Store.Delete_Metadata" />
   </EntityContainerMapping>
 </Mapping>

@@ -872,5 +872,10 @@
       <End Role="SpeechEvents" EntitySet="SpeechEvents" />
       <End Role="SpeechEventTopics" EntitySet="SpeechEventTopics" />
     </AssociationSet>
+    <FunctionImport Name="Prepare_For_Import" />
+    <FunctionImport Name="Prepare_For_Import_Contributors" />
+    <FunctionImport Name="Delete_Contributors" />
+    <FunctionImport Name="Delete_Lexemes" />
+    <FunctionImport Name="Delete_Metadata" />
   </EntityContainer>
 </Schema>

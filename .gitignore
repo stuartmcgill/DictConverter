@@ -1,0 +1,9 @@
+#Ignore
+App_Data/Elmah.Errors/*
+
+#Allow
+!App_Data/Elmah.Errors/ElmahErrors.txt
+
+#Ignore
+Image/
+audio_visual/

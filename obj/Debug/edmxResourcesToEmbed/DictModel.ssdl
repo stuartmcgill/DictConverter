@@ -652,6 +652,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="Delete_Contributors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Delete_Lexemes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Delete_Metadata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="DictionaryModelStoreContainer">
     <EntitySet Name="ContributorImage" EntityType="Self.ContributorImage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContributorLanguage" EntityType="Self.ContributorLanguage" Schema="dbo" store:Type="Tables" />
